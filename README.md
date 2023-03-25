@@ -26,7 +26,7 @@ Code Representation:
 }
 ```
 
-2. Quantified Statement
+### Quantified Statement
 
 Mathematical Notation: `∀x P(x)`
 
@@ -47,7 +47,7 @@ Code Representation:
 }
 ```
 
-3. Inference Rule
+### Inference Rule
 
 Mathematical Notation: `A ∧ B ⊢ C`
 

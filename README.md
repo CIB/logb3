@@ -1,7 +1,8 @@
 # logb
 
 logb is a project aimed at providing a foundation for working with logical statements in a manner similar to programming languages. It offers a flexible and expressive way to represent, manipulate, and reason about knowledge, making it easier to understand and work with logical statements and their relations.
-Goal
+
+## Goal
 
 The primary goal of this project is to create a versatile system that enables users to interact with logical statements seamlessly. By providing a well-structured and expressive syntax, this system aims to simplify the process of reasoning and knowledge representation.
 

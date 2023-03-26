@@ -27,10 +27,10 @@ function relationToString(relation: Relation): string {
     return `${tuple[0]} ${colors.bold.green(relation.predicate)} ${tuple[1]}`;
   } else if (tuple.length === 1) {
     // Prefix syntax for unary relations
-    return `${colors.bold(relation.predicate)} ${tuple[0]}`;
+    return `${colors.bold.green(relation.predicate)}(${tuple[0]})`;
   } else {
     // Default case: use parentheses
-    return `${colors.bold(relation.predicate)}(${tuple.join(', ')})`;
+    return `${colors.bold.green(relation.predicate)}(${tuple.join(', ')})`;
   }
 }
 
@@ -39,9 +39,9 @@ export function statementToString(statement: Statement): string {
     case 'Relation':
       return relationToString(statement);
     case 'Quantifier':
-      return `${colors.red(statement.quantifier)}${colors.green(
+      return `${colors.red(statement.quantifier)}${colors.yellow(
         statement.variable
-      )} ${entityDescriptionToString(statement.set)}. ${statementToString(
+      )}∈${entityDescriptionToString(statement.set)}.${statementToString(
         statement.statement
       )}`;
     case 'StatementVariable':

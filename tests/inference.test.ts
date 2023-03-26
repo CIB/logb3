@@ -2,27 +2,13 @@ import { Dictionary } from 'lodash';
 import { KnowledgeBase, runInference } from '../src/inference';
 import { andInference } from '../src/boolean';
 import { EntityDescription, Statement } from '../src/statement';
+import { s } from '@src/parser/parser';
 
 describe('runInference', () => {
   it('should correctly apply the and inference rule', () => {
     // Create statements for "John is a programmer" and "John is a mathematician"
-    const johnProgrammer: Statement = {
-      type: 'Relation',
-      predicate: 'is',
-      tuple: [
-        { type: 'NamedEntity', name: 'John' },
-        { type: 'NamedEntity', name: 'Programmer' },
-      ],
-    };
-
-    const johnMathematician: Statement = {
-      type: 'Relation',
-      predicate: 'is',
-      tuple: [
-        { type: 'NamedEntity', name: 'John' },
-        { type: 'NamedEntity', name: 'Mathematician' },
-      ],
-    };
+    const johnProgrammer = s('John is Programmer');
+    const johnMathematician = s('John is Mathematician');
 
     // Create a knowledge base with the two initial statements
     const kb: KnowledgeBase = {

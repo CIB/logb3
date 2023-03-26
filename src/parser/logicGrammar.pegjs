@@ -9,7 +9,9 @@ Quantifier
     { return { type: 'Quantifier', quantifier: q, variable: v.name, set: s, statement: st }; }
 
 Relation
-  = predicate:Identifier ws? "(" ws? tuple:EntityDescriptionList ws? ")"
+  = left:EntityDescription ws? predicate:Identifier ws? right:EntityDescription
+    { return { type: 'Relation', predicate: predicate, tuple: [left, right] }; }
+  / predicate:Identifier ws? "(" ws? tuple:EntityDescriptionList ws? ")"
     { return { type: 'Relation', predicate: predicate, tuple: tuple }; }
 
 EntityDescriptionList

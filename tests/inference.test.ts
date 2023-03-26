@@ -25,11 +25,9 @@ describe('runInference', () => {
     runInference(kb, andInference, substitutions);
 
     // Create the expected inferred 'and' statement
-    const inferredAnd: Statement = {
-      type: 'Relation',
-      predicate: '∧',
-      tuple: [johnProgrammer, johnMathematician],
-    };
+    const inferredAnd: Statement = s(
+      '(John is Programmer) ∧ (John is Mathematician)'
+    );
 
     // Check if the knowledge base contains both initial statements and the inferred 'and' statement after the inference
     const expectedResult = [johnProgrammer, johnMathematician, inferredAnd];

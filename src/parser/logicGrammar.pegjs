@@ -20,7 +20,11 @@ EntityDescriptionList
   / single:EntityDescription { return [single]; }
 
 EntityDescription
-  = VariableEntity / NamedEntity
+  = NamedEntity / NestedStatement
+
+NestedStatement
+  = "(" statement:Statement ")"
+  { return statement }
 
 NamedEntity
   = name:Identifier
@@ -44,7 +48,7 @@ VariableIdentifier
   = chars:Letter+ { return chars.join(''); }
 
 Letter
-  = [a-zA-Z]
+  = [a-zA-Z∧]
   
 ws
   = [\\t\\n\\r ]+

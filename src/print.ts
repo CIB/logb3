@@ -9,11 +9,11 @@ function entityDescriptionToString(entity: EntityDescription): string {
     case 'NamedSet':
       return colors.magenta(`{${entity.name}}`);
     case 'Variable':
-      return colors.green(entity.name);
+      return colors.yellow(entity.name);
     case 'StatementVariable':
       return colors.yellow(entity.name);
     case 'Relation':
-      return relationToString(entity);
+      return '('.red + relationToString(entity) + ')'.red;
     default:
       throw new Error(`Unsupported entity type: ${entity.type}`);
   }
@@ -34,7 +34,7 @@ function relationToString(relation: Relation): string {
   }
 }
 
-function statementToString(statement: Statement): string {
+export function statementToString(statement: Statement): string {
   switch (statement.type) {
     case 'Relation':
       return relationToString(statement);

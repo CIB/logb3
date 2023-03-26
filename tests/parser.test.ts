@@ -18,7 +18,7 @@ describe('parser', () => {
       statement: {
         type: 'Relation',
         predicate: 'P',
-        tuple: [{ type: 'Variable', name: 'x' }],
+        tuple: [{ type: 'NamedEntity', name: 'x' }],
       },
     };
 
